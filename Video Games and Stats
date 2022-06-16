@@ -1,0 +1,32 @@
+--Create a video game database
+
+CREATE TABLE Video_Games (id INTEGER PRIMARY KEY, name TEXT, quantities_sold INTEGER, release_year INTEGER, developer TEXT, price INTEGER); 
+
+INSERT INTO Video_Games VALUES (1, "League of Legends", 100000, 2002, "Riot Games", 0); 
+INSERT INTO Video_Games VALUES (2, "FIFA", 10000000, 1993, "EA Sports", 50); 
+INSERT INTO Video_Games VALUES (3, "Resident Evil", 10000, 1991, "Konami", 40);
+INSERT INTO Video_Games VALUES (4, "Super Mario Bros", 10000000, 1990, "Nintendo", 30);
+INSERT INTO Video_Games VALUES (5, "Super Mario Sunshine", 10000000, 1994, "Nintendo", 30);
+INSERT INTO Video_Games VALUES (6, "Paper Mario", 399000, 1995, "Nintendo", 25);
+INSERT INTO Video_Games VALUES (7, "Valorant", 200000, 2020, "Riot Games", 0);
+INSERT INTO Video_Games VALUES (8, "TFT", 99999, 2019, "Riot Games", 0); 
+INSERT INTO Video_Games VALUES (9, "Need for Speed", 250000, 1989, "x company", 20);
+INSERT INTO Video_Games VALUES (10, "Overwatch", 999999, 2017, "Blizzard", 30);
+INSERT INTO Video_Games VALUES (11, "World of Warcraft", 1000000, 1995, "Blizzard", 0);
+INSERT INTO Video_Games VALUES (12, "Cod4", 10000000, 2003, "Activision", 60);
+INSERT INTO Video_Games VALUES (13, "COD:Black Ops", 2000000, 2005, "Treyarch", 60);
+INSERT INTO Video_Games VALUES (14, "MW2", 2000000, 2006, "Activision", 60); 
+INSERT INTO Video_Games VALUES (15, "MW3", 3000000, 2009, "Activision", 60);
+
+--display the database and show all video games where price is equal to 0
+Select * FROM Video_Games 
+Where price = 0;
+
+--What is the highest priced video game in the table?
+Select name, MAX(price) FROM Video_Games
+
+--what are the 5 most expensive video game names?
+Select name, price
+FROM Video_Games 
+order by price desc
+limit 5; 
