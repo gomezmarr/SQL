@@ -1,0 +1,36 @@
+--Create The Office database.
+
+CREATE TABLE famous (id INTEGER PRIMARY KEY, first_name TEXT, last_name TEXT);
+
+INSERT INTO famous VALUES (1, "Michael", "Scott");
+INSERT INTO famous VALUES (2, "Dwight", "Schrute");
+INSERT INTO famous VALUES (3, "Jim", "Helpert");
+INSERT INTO famous VALUES (4, "Pam", "Beesly");
+
+CREATE TABLE hobbies (id INTEGER PRIMARY KEY, name TEXT);
+
+INSERT INTO hobbies VALUES (1, "annoying co-workers");
+INSERT INTO hobbies VALUES (2, "farming");
+INSERT INTO hobbies VALUES (3, "being whitty");
+INSERT INTO hobbies VALUES (4, "creating art");
+
+CREATE TABLE spouses (id INTEGER PRIMARY KEY, name TEXT);
+
+INSERT INTO spouses VALUES (1, "Holly Flax");
+INSERT INTO spouses VALUES (2, "Angela Martin");
+INSERT INTO spouses VALUES (3, "Pam Beesly");
+INSERT INTO spouses VALUES (4, "Jim Halpert");
+
+--Display the database and show the created characters along with their hobbies 
+SELECT famous.first_name, famous.last_name, hobbies.name
+FROM famous 
+JOIN hobbies
+ON famous.id = hobbies.id;
+
+--Display the database and show each created character along with their spouse, followed by their hobby.     
+SELECT famous.first_name, famous.last_name, spouses.name as spouses_name, hobbies.name as hobby
+FROM famous 
+JOIN spouses
+ON famous.id = spouses.id
+JOIN hobbies
+ON famous.id = hobbies.id
